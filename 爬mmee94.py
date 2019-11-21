@@ -83,8 +83,9 @@ def download_from_url_list_tag(session,url_list_tag,type_path):
     #从装了url list的tag下载
 
 
-    # tempcount = 1
-    # i = 0
+    tempcount = 1
+    i = 0
+    #计数器，测试用
 
     for a_tag in url_list_tag:
         imgset_url = source_url + a_tag['href']
@@ -127,9 +128,10 @@ def download_from_url_list_tag(session,url_list_tag,type_path):
             print('Successfully Saved  Img Set! : %s' % imgset_name)
 
 
-            # i = i + 1
-            # if (i > tempcount):
-            #     return
+            i = i + 1
+            if (i > tempcount):
+                return
+            #计数器，测试用
 
         else:
             print('此图集已经存在')
