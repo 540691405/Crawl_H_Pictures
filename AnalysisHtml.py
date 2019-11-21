@@ -1,11 +1,12 @@
 from bs4 import BeautifulSoup
 
-#传入类型url,原网址url ，解析出所有单个图集url,返回单个图集url组成的list
+#传入类型url,原网址url ，
+# 解析出所有单个图集名字和url,返回单个图集名字和url组成的dic
 def GetSetUrlsFromTypeUrl(session,type_url,source_url):
     #
 
-    imgset_urls = []
-    # 初始化图集的url的list
+    imgset_urls_dic = {}
+    # 初始化图集信息的dic
 
     type_response = session.get(type_url)
     # 进入类型网页
@@ -20,15 +21,18 @@ def GetSetUrlsFromTypeUrl(session,type_url,source_url):
     # 从中选择textLIst为url-list所在，其中a tag 装了href
 
     for a_tag in imgset_url_tag_list:
+        imgset_name=a_tag.get_text()[5:]
+        #从atag解析出去了日期的名字部分
         imgset_url = source_url + a_tag['href']
         #得到url
-        imgset_urls.append(imgset_url)
-        #放入list
+        imgset_urls_dic[imgset_name]=imgset_url
+        #放入图集信息dic
+        #key： imgsetname  value url
 
-    return imgset_urls
+    return imgset_urls_dic
 
 
-#传入一个图集的url，解析出图集名字和所有单个图片的url,返回单个图片url的list
+#传入一个图集的url，解析出所有单个图片的url,返回由他们组成的list
 def GetImgUrlsFromSetUrl(session,imgset_url):
     #参数：已有session, 图集的url：img_set_url,图集的名称: imgset_name
     #返回 img_urls list

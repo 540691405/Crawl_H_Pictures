@@ -1,5 +1,6 @@
 import os
 import requests
+import multiprocessing as mp
 #上面为别人包
 #此为我的包
 import ioUtil
@@ -65,14 +66,18 @@ def selectd_photo_type(type_string):
 def DownLoadFromType(session,type_url,type_string):
     #参数为 会话session  类型的url  类型的string
 
+    # pool=mp.Pool()
+    # 加入多进程下载
+
+
     #若此分类不存在，创建此分类文件夹
     type_path='%s/%s' %(save_path,type_string)
     if(not os.path.exists(type_path)):
         os.makedirs(type_path)
 
     #先分析分类网页
-    imgset_urls=AnalysisHtml.GetSetUrlsFromTypeUrl(session,type_url,source_url)
-    # 得到图集的url-list
+    imgset_urls_dic=AnalysisHtml.GetSetUrlsFromTypeUrl(session,type_url,source_url)
+    # 得到图集的url-dic
 
 
     #####################################
@@ -82,11 +87,11 @@ def DownLoadFromType(session,type_url,type_string):
     ######################################
 
 
-    #对所有图集的url
-    for imgset_url in imgset_urls:
-        # 图集的url
-        imgset_name = imgset_url.split('/')[-1]
-        # 得到图集名字
+    #对所有图集的url信息dic
+    for imgset_name,imgset_url in imgset_urls_dic.items():
+        #key： imgsetname  value url
+        # 得到图集名字,url对
+
         ioUtil.DownloadImgSet(session, imgset_url, type_path, imgset_name)
         # 下载图集
 
