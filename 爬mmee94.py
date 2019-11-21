@@ -1,7 +1,12 @@
 import os
-import re
 import requests
-from bs4 import BeautifulSoup
+#上面为别人包
+#此为我的包
+import ioUtil
+import AnalysisHtml
+
+
+
 
 
 # 原网站url:
@@ -53,11 +58,11 @@ def selectd_photo_type(type_string):
         print("无此分类")
         return
 
-    DownLoad_From_Type(session,Type_url,type_string)
+    DownLoadFromType(session,Type_url,type_string)
     #从正确的分类下载
 
-
-def DownLoad_From_Type(session,Type_url,type_string):
+#从一个已经选择的分类下载
+def DownLoadFromType(session,type_url,type_string):
     #参数为 会话session  类型的url  类型的string
 
     #若此分类不存在，创建此分类文件夹
@@ -65,76 +70,36 @@ def DownLoad_From_Type(session,Type_url,type_string):
     if(not os.path.exists(type_path)):
         os.makedirs(type_path)
 
-    base_response = session.get(Type_url)
-    # 进入类型网页
-    base_html = base_response.text
-    # 得到类型的网页html
-
-    base_soup = BeautifulSoup(base_html, 'lxml')
-    # 用Beautifulsoup解析
-    url_list_tag = base_soup.find('ul', {'class': 'textList'}).find_all('a')
+    #先分析分类网页
+    imgset_urls=AnalysisHtml.GetSetUrlsFromTypeUrl(session,type_url,source_url)
     # 得到图集的url-list
-    # 从中选择textLIst为url-list所在，其中a tag 装了href
-    download_from_url_list_tag(session, url_list_tag,type_path)
 
 
-def download_from_url_list_tag(session,url_list_tag,type_path):
-    #参数为 会话session  类型的url_list_tang   类型的文件夹
-    #从装了url list的tag下载
-
-
+    #####################################
     tempcount = 1
     i = 0
-    #计数器，测试用
+    #计数器，控制图集数，测试用
+    ######################################
 
-    for a_tag in url_list_tag:
-        imgset_url = source_url + a_tag['href']
+
+    #对所有图集的url
+    for imgset_url in imgset_urls:
         # 图集的url
-        imgset_response = session.get(imgset_url)
-        # 得到一个图片集的response
-        imgset_html = imgset_response.text
-        # 得到图片集的html
-        imgset_soup = BeautifulSoup(imgset_html, 'lxml')
-        # 用BeautifulSoup处理图片集html
-        imgs_url = imgset_soup.find_all('img')
-        # 图片都在此html的img tag里的src
-
         imgset_name = imgset_url.split('/')[-1]
         # 得到图集名字
+        ioUtil.DownloadImgSet(session, imgset_url, type_path, imgset_name)
+        # 下载图集
 
-        imgset_path='%s/%s/' % (type_path,imgset_name)
-        #图集存放位置的path
-
-        if(not os.path.exists(imgset_path)):
-            #若此图集没有，就下载
-
-            os.makedirs('%s/%s/' % (type_path, imgset_name), exist_ok=True)
-            # 创建图集路径
-            print('downloading from %s' % imgset_name)
-            # 接着对图集url下载图片:
-            for img_tag in imgs_url:
-                img_url = img_tag['src']
-                # 得到单个图片url
-
-                img_name = img_url.split('/')[-1]
-                # 创建图片名
-
-                img_response = session.get(img_url, stream=True)
-                # 得到图片
-                with open('%s/%s/%s' % (type_path, imgset_name, img_name), 'wb') as f:
-                    for chunk in img_response.iter_content(chunk_size=128):
-                        f.write(chunk)
-                        # 写入图片
-            print('Successfully Saved  Img Set! : %s' % imgset_name)
+        ####################################
+        i = i + 1
+        if (i > tempcount):
+            return True
+        # 计数器，测试用
+        #######################################
 
 
-            i = i + 1
-            if (i > tempcount):
-                return
-            #计数器，测试用
+    return True
 
-        else:
-            print('此图集已经存在')
 
 
 
