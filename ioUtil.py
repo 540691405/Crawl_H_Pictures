@@ -83,13 +83,14 @@ async def DownloadImg_async(session:aiohttp.client.ClientSession,img_url:str,pat
         with open('%s/%s' % (path, img_name),'wb') as f:
             #写入图片
             while True:
-                chunk = await img_response.content.read(chunk_size=128)
+                chunk = await img_response.content.read(128)
                 #对aiohttp的流文件下载
                 if not chunk:
                     break
                 f.write(chunk)
 
-async def DownloadImgSet_async(session:aiohttp.client.ClientSession,loop,imgset_url:str,type_path:str,imgset_name:str):
+#异步下载图集方法
+async def DownloadImgSet_async(session:aiohttp.client.ClientSession,loop:asyncio.windows_events._WindowsSelectorEventLoop,imgset_url:str,type_path:str,imgset_name:str):
     #传入图集的url ，下载里面所有图片
     #参数： session 会话 , loop  asyncio envent loop
     # imgset_url 图集的url,
@@ -117,25 +118,24 @@ async def DownloadImgSet_async(session:aiohttp.client.ClientSession,loop,imgset_
 
         return True
 
-
-
-async def main(loop):
-
-    async with aiohttp.ClientSession() as session:
-    # 创建 aiohttp 的 clien session
-        loop.run_until_complete(asyncio.wait(DownloadImgSet(session, imgset_url, type_path, imgset_name)))
-
-    await session.close()
-
-
-if __name__ == '__main__':
+#调试用main
+async def main(loop:asyncio.windows_events._WindowsSelectorEventLoop):
     type_path = 'D:/爬取的图片/欧美色图'
     imgset_url = 'http://mmee94.com/fdft_826216.html'
     imgset_name = '不绝美不收藏，御姐的笑容让人陶醉 [20P]'
 
+    async with aiohttp.ClientSession() as session:
+    # 创建 aiohttp 的 clien session
+        await DownloadImgSet_async(session,loop,imgset_url, type_path, imgset_name)
 
-    loop=asyncio.get_event_loop()
-    loop.run_until_complete(DownloadImgSet_async(session,loop,imgset_url, type_path, imgset_name))
+
+if __name__ == '__main__':
+
+
+    loop = asyncio.get_event_loop()
+    print(type(loop))
+    loop.run_until_complete(main(loop))
     loop.close()
+
     # session=requests.session()
     # DownloadImgSet(session,'http://mmee94.com/fdft_826216.html','D:/爬取的图片/欧美色图','不绝美不收藏，御姐的笑容让人陶醉 [20P]')

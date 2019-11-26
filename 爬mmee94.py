@@ -111,7 +111,7 @@ def DownLoadFromType(type_url:str,type_string:str):
     return True
 
 #从一个已经选择的分类下载,用aiohttp
-async def DownLoadFromType_async(loop,type_url:str,type_string:str):
+async def DownLoadFromType_async(loop:asyncio.windows_events._WindowsSelectorEventLoop,type_url:str,type_string:str):
     #参数为 loop asyncio的envnt_loop 下载方法:way  类型的url  类型的string
 
     #若此分类不存在，创建此分类文件夹
@@ -171,12 +171,11 @@ async def DownLoadFromType_async(loop,type_url:str,type_string:str):
 
 
 
-
-
 if __name__ == '__main__':
 
     flag=True
     #是否退出
+    way='0'
     while(flag):
         print('''
 选择下载方式：
