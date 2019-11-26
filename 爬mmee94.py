@@ -150,23 +150,6 @@ async def DownLoadFromType_async(loop:asyncio.windows_events._WindowsSelectorEve
             # 计数器，测试用
             #######################################
 
-
-    # #进程池
-    # with mp.Pool(processes=4) as pool:
-    #
-    #     print("多进程地下载图集")
-    #     for imgset_name, imgset_url in imgset_urls_dic.items():
-    #     # 得到图集名字,url对
-    #         pool.apply_async(
-    #         ioUtil.DownloadImgSet,
-    #         args=(session, imgset_url, type_path, imgset_name,)
-    #         )
-    #     # 下载图集
-    #     pool.close()
-    #     pool.join()
-    #     #等待所用进程完成
-
-
     return True
 
 

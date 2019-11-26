@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="00ffbed0-fa12-4289-b132-58255dd98cc9" name="Default Changelist" comment="对下载的动作加入了可选择&#10;多进程下载图片&#10;异步下载图片">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ioUtil.py" beforeDir="false" afterPath="$PROJECT_DIR$/ioUtil.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/爬mmee94.py" beforeDir="false" afterPath="$PROJECT_DIR$/爬mmee94.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,13 +16,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/爬mmee94.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-130">
-              <caret line="189" column="28" lean-forward="true" selection-start-line="189" selection-start-column="28" selection-end-line="189" selection-end-column="28" />
+            <state relative-caret-position="1653">
+              <caret line="108" column="19" lean-forward="true" selection-start-line="108" selection-start-column="19" selection-end-line="108" selection-end-column="19" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <element signature="e#571#1054#0" />
-                <element signature="e#1151#2536#0" />
-                <element signature="e#2479#2555#0" />
               </folding>
             </state>
           </provider>
@@ -32,15 +28,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ioUtil.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
+            <state relative-caret-position="1425">
               <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <element signature="e#182#451#0" />
-                <element signature="e#568#1935#0" />
-                <element signature="e#2015#2441#0" />
-                <element signature="e#2521#3300#0" />
-                <element signature="e#3549#3843#0" />
               </folding>
             </state>
           </provider>
@@ -50,13 +41,9 @@
         <entry file="file://$PROJECT_DIR$/AnalysisHtml.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="38">
-              <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+              <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
-                <element signature="e#163#841#0" />
-                <element signature="e#916#1565#0" />
-                <element signature="e#1696#2382#0" />
-                <element signature="e#2486#3143#0" />
               </folding>
             </state>
           </provider>
@@ -76,7 +63,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="dev" />
       </map>
     </option>
   </component>
@@ -91,9 +78,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="952" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+    <option name="x" value="951" />
+    <option name="width" value="978" />
+    <option name="height" value="1039" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -101,8 +88,22 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="爬Se图" type="b2602c69:ProjectViewProjectNode" />
+              <item name="爬Se图" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="爬Se图" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -172,10 +173,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.爬mmee94" />
         <item itemvalue="Python.ioUtil" />
         <item itemvalue="Python.爬mmee94" />
-        <item itemvalue="Python.爬mmee94" />
-        <item itemvalue="Python.爬mmee94" />
+        <item itemvalue="Python.ioUtil" />
         <item itemvalue="Python.爬mmee94" />
       </list>
     </recent_temporary>
@@ -200,6 +201,7 @@
       <workItem from="1574694076018" duration="746000" />
       <workItem from="1574730730260" duration="9593000" />
       <workItem from="1574765182672" duration="6356000" />
+      <workItem from="1574771917555" duration="341000" />
     </task>
     <task id="LOCAL-00001" summary="第一个可运行版本&#10;可以选择类别进行爬取">
       <created>1574305390452</created>
@@ -254,7 +256,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58757000" />
+    <option name="totallyTimeSpent" value="59098000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -267,9 +269,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13203754" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13337801" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -280,7 +281,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49861878" weight="0.24362606" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49861878" visible="true" weight="0.68696886" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5013812" side_tool="true" weight="0.32904148" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49861878" weight="0.3286119" />
@@ -363,44 +364,32 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/MultiProcessUtil.py" />
-    <entry file="file://$PROJECT_DIR$/AnalysisHtml.py">
+    <entry file="file://$PROJECT_DIR$/爬mmee94.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        <state relative-caret-position="1653">
+          <caret line="108" column="19" lean-forward="true" selection-start-line="108" selection-start-column="19" selection-end-line="108" selection-end-column="19" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#163#841#0" />
-            <element signature="e#916#1565#0" />
-            <element signature="e#1696#2382#0" />
-            <element signature="e#2486#3143#0" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ioUtil.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
+        <state relative-caret-position="1425">
           <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-            <element signature="e#182#451#0" />
-            <element signature="e#568#1935#0" />
-            <element signature="e#2015#2441#0" />
-            <element signature="e#2521#3300#0" />
-            <element signature="e#3549#3843#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/爬mmee94.py">
+    <entry file="file://$PROJECT_DIR$/AnalysisHtml.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-130">
-          <caret line="189" column="28" lean-forward="true" selection-start-line="189" selection-start-column="28" selection-end-line="189" selection-end-column="28" />
+        <state relative-caret-position="38">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <element signature="e#571#1054#0" />
-            <element signature="e#1151#2536#0" />
-            <element signature="e#2479#2555#0" />
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
